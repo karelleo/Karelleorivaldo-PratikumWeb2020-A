@@ -1,0 +1,82 @@
+body {/* tag body */
+    font-family: serif;/* font yang akan dipakai */
+}
+
+#header {/* id header */
+    min-height: 200px;/* mengatur minimal tinggi  */
+    
+    background-image: url(../img/bg.jfif);/* memberi background pada header dengan menuju arah file img*/
+    
+    background-size: cover;/* membuat gambar lebih presisi  */
+
+    background-attachment: fixed;/* membuat letak gambar fixed  */
+
+    color: white;/* membuat warna text menjadi putih */
+}
+
+#header h1 {/* header h1 pada id header */
+   
+    padding: 70px 0px 0px 130px;/* mengatur padding */
+}
+
+#header h3 {/* header h3 pada id header */
+
+    padding: 0px 0px 50px 130px;/* mengatur padding */
+}
+
+#form { /* id form */
+    
+    margin: 0px 130px;/* mengatur margin kiri kanan */
+}
+
+table {
+
+    width: 100%;/* tag table dengan lebar 100% */
+}
+
+
+td {
+
+    padding: 5px; /* mengatur padding */
+}
+
+.input,
+select,
+textarea {
+    width: 99%;/* lebar sebesar 99% */
+    
+    font-size: 14px;/* ukuran font sebesar 14px */
+    
+    border-width: 1px;/* tebal border sebesar 1px */
+    
+    border-color: #cccccc;/* mengatur warna border  */
+    
+    color: red
+    
+    border-style: solid;/* border solid */
+    
+    padding: 5px;
+    
+    box-shadow: 0px 0px 2px 0px rgba(42, 42, 42, .35);/* mengatur shadow */
+}
+
+.button {
+ 
+    padding: 6px 10px;
+
+    box-shadow: inset 0px 1px 0px 0px #a4e271;/* mengatur shadow */
+    
+    background-color: #89c403;/* warna bg button */
+    
+    border-radius: 6px;/* mengatur border radius */
+    
+    border: 1px solid #74b807;/* mengatur border dengan ketebalan 1px */
+    
+    display: inline-block;/* mengatur display */
+    
+    color: #ffffff;/* warna text */
+    
+    font-size: 14px;/* ukuran font 14 px */
+    
+    font-weight: bold;/* font wight */
+}
