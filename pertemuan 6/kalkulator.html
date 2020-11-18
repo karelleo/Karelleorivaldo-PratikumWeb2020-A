@@ -1,0 +1,90 @@
+<!-- pada tugas kali inik saya menggunakan framework front end dari boostrap, untuk menjalakannya diharuskan mengkoneksikan internet dikarenakan data dari file bootrap tersendiri berifat url-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Tugas PBWA</title>
+  </head>
+  <body>
+  <div class="container">  
+    <div class="row">
+      <div class="col" style=" margin-top: 100px; margin-left: 300px;">  <!--mengunakan css internal untuk memberikan margin pada halaman -->
+        <table>
+          <h2 class="text-uppercase" style="margin-left:200px; margin-bottom: 40px;">Kalkulator</h2> <!-- memberikan margin pada tulisna atau judul aplikasi -->
+          <tr>
+            <td class="text-uppercase">Bil 1 </td> 
+            <td colspan="4"><input type="text" class="form-control border border-secondary" id="bil1"></td> 
+          </tr> <!-- memberikan class text-uppercase (huruf besar) pada bil 1  dan memerikan id bil1 -->
+          <tr>
+            <td class="text-uppercase">Bil 2 </td>
+            <td colspan="4"><input type="text" class="form-control border border-secondary" id="bil2"></td> <!-- memberikan class text-uppercase (huruf besar) pada bil 2  dan memerikan id bil2 -->
+            <td colspan="4"><button type="button" class="btn btn-primary form-control" id="hitung">=</button></td> <!-- saya menggunakann class button pada boostrap, dengan id hitung -->
+            <td class="text-uppercase"> Hasil </td> 
+            <td colspan="4"><input type="text" class="form-control border border-secondary" id="hasil" disabled="disabled"></td>
+          </tr><!-- memberikan class text-uppercase (huruf besar) pada hasil  dan memerikan id hasil-->
+          <tr>
+            <td></td>
+            <td>
+              <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input operator" data="tambah"><label class="custom-control-label p-2" for="customRadioInline1">+</label> <!-- saya menggunakan inputan dengan fungsi sebagai operator di dalamnya pada code ini saya menggunakan untuk operatordengan data tambah -->
+            </td>
+            <td>
+              <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input operator" data="kurang"><label class="custom-control-label p-2" for="customRadioInline2">-</label> <!-- saya menggunakan inputan dengan fungsi sebagai operator di dalamnya pada code ini saya menggunakan untuk operatordengan data kurang -->
+            <td>
+              <input type="radio" id="customRadioInline3" name="customRadioInline1" class="custom-control-input operator" data="kali"><label class="custom-control-label p-2" for="customRadioInline3">x</label> <!-- saya menggunakan inputan dengan fungsi sebagai operator di dalamnya pada code ini saya menggunakan untuk operatordengan data kali -->
+            </td>
+            <td>
+              <input type="radio" id="customRadioInline4" name="customRadioInline1" class="custom-control-input operator" data="bagi"><label class="custom-control-label p-2" for="customRadioInline4">/</label> <!-- saya menggunakan inputan dengan fungsi sebagai operator di dalamnya pada code ini saya menggunakan untuk operatordengan data bagi -->
+            </td>
+          </tr>
+        </table>
+         <p> catatan : jika data tersebut bukan inputan akan bernilai NaN</p>
+      </div>
+    </div>
+  </div>
+    <!-- Optional JavaScript
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+     <!--  dimana saya menggunakan internal javascript untuk menjalankan operator aritmetika tersebut -->
+    <script> 
+        var bil1 = document.getElementById("bil1"); /* mengambil sebuah value pada inputan yang ada di HTML diatas dengan element inputan ID bil 1*/
+        var bil2 = document.getElementById("bil2"); /* mengambil sebuah value pada inputan yang ada di HTML diatas dengan element inputan ID bil 2*/
+        var result = document.getElementById("hasil"); /* mengambil sebuah value pada inputan yang ada di HTML diatas dengan element inputan ID bil hasil*/
+        var opr = document.getElementsByClassName("operator"); /* mengambil sebuah value pada inputan yang ada di HTML diatas dengan element operator*/
+        var hitung = document.getElementById("hitung"); /* mengambil sebuah value pada inputan yang ada di HTML diatas dengan element inputan ID hitung*/
+        for(var i=0; i<opr.length; i++){ /* dimana akna terjadi perulangan dan kondisi untuk mengecek apakah user telah mmemilih operator dan dikombinasikan dengan penggunaan fungsi untuk memvalidasi suatu isian formdan jika operator sudah dipilih akan mendapatkan nilai atribute */
+          opr[i].onchange = function(){
+            if(this.checked){
+              var oper = this.getAttribute("data")
+              Operasi(oper)
+            } 
+          }
+}
+function Operasi(oper) {
+          hitung.onclick = function(){
+            var val1 = parseInt(bil1.value) /* pada hal ini kita akan mengubah string menjadi interger sesuai inptan bilangan dengan parsent kenapa harus interger? dikarenakan kita akan melakukan perhitungan aritmetika, lalu dimana akan terjadi perhitungan aritmetika sesuai dengan  event on click pada objek operator inputan dengan penggunaan fungsi untuk memvalidasi suatu isian formerator yang dipilih dengan menentukan kondisi if else sebagai contoh nilai bil1 + nilai bil2 jika benar akan menjadi hasil dan jika salah akan melakukan pengecekan, dan jika data tidak ada (operator) maka program akan melakukan pesan error*/
+            var val2 = parseInt(bil2.value)
+            if(oper=="tambah"){
+              var hasil = (val1 + val2)
+            }else if(oper=="kurang"){
+              var hasil = (val1 - val2)
+            }else if(oper=="kali"){
+              var hasil = (val1 * val2)
+            }else if(oper=="bagi"){
+              var hasil = (val1 / val2)
+            }else{
+              var hasil = "error"
+            }
+            result.value = hasil
+          }
+}
+    </script>
+</body>
+</html>
